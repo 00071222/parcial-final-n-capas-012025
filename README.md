@@ -3,9 +3,9 @@
 Este repositorio contiene un proyecto para evaluar y practicar los conceptos de seguridad en aplicaciones Spring Boot usando JWT, roles y Docker.
 
 ### Estudiantes
-- **Nombre del estudiante 1**: [Tu nombre aquí] - [Carnet aquí]
-- **Nombre del estudiante 2**: [Tu nombre aquí] - [Carnet aquí]
-- Sección: [Tu sección aquí]
+- **Nombre del estudiante 1**: Cristofer Ricardo Diaz Alfaro - 00071222
+- **Nombre del estudiante 2**: Francisco Alejandro Erroa Ramos - 00300722
+- Sección: 2
 ---
 
 ## Sistema de Soporte Técnico
@@ -57,9 +57,16 @@ _Si van a crear mas endpoints como el login o registrarse recuerden actualizar p
 - [ ] Validar que solo un TECH pueda modificar tickets.
 
 #### Parte 5: Agregar Docker
-- [ ] `Dockerfile` funcional para la aplicación.
-- [ ] `docker-compose.yml` que levante la app y la base de datos.
-- [ ] Documentar cómo levantar el entorno (`docker compose up`).
+- [x] `Dockerfile` funcional para la aplicación.
+- [x] `docker-compose.yml` que levante la app y la base de datos.
+- [x] Documentar cómo levantar el entorno (`docker compose up`).
+
+#### Como levantar el docker?
+El docker se levanta con el comando: 
+```bash
+    docker-compose up --build
+```
+ejecutado desde la raiz del proyecto.
 
 #### Parte 6: Evidencia de pruebas
 - [ ] Probar todos los flujos con Postman/Insomnia/Bruno.
