@@ -1,3 +1,7 @@
+app:
+  jwt-secret: fWGy30lAyaSNRLLDq2Lau0LJHkruRPjYem1Jpnt3Q+c=
+  jwt-expiration-time: 86400000
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/supportdb
