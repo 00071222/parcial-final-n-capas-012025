@@ -25,20 +25,15 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf((csrf) -> csrf.disable())
-                .authorizeHttpRequests((authorizeRequests) -> {
-                    authorizeRequests
-                            .requestMatchers("/api/auth/**").permitAll() //Permits urls to be public, no authorization needed
-                            .requestMatchers("/api/tickets/**").permitAll()
-                            .requestMatchers("/api/users/**").permitAll()
-                            .anyRequest().authenticated();
-                }).httpBasic(Customizer.withDefaults());
+        http
+                .csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .anyRequest().authenticated()               // el resto requiere token
+                )
+                .exceptionHandling(ex -> ex.authenticationEntryPoint(jwtAuth)) // manejar 401
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class); // aplicar filtro JWT
 
-
-        http.exceptionHandling(exception ->
-                exception.authenticationEntryPoint(jwtAuth));
-
-        http.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
